@@ -1,20 +1,40 @@
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #000;
+    --button-bg-color: #4CAF50;
+    --button-text-color: white;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.dark-mode {
+    --background-color: #333;
+    --text-color: #fff;
+    --button-bg-color: #555;
+    --button-text-color: #fff;
 }
 
 .container {
     text-align: center;
 }
 
-#generate {
+#generate, #theme-toggle {
     padding: 10px 20px;
     font-size: 1.2em;
     cursor: pointer;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .number-container {
