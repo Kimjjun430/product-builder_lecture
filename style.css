@@ -55,3 +55,57 @@ body {
     font-size: 1.5em;
     margin: 0 5px;
 }
+
+.contact-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: left;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-section form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-section form input[type="text"],
+.contact-section form input[type="email"],
+.contact-section form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't increase total width */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.contact-section form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.contact-section form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section form button[type="submit"]:hover {
+    background-color: #45a049;
+}
