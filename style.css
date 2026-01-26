@@ -24,17 +24,120 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-    /* Existing container styles, adapted for sections */
-    margin-bottom: 20px; /* Space between container and disqus/other elements */
+.left-section .container, .right-section .container {
+    padding: 0; /* Remove padding from inner container as section already has it */
+    margin: 0; /* Remove margin from inner container */
+    box-shadow: none; /* Remove shadow from inner container */
 }
 
 h1 {
     text-align: center;
     color: #0056b3;
     margin-bottom: 30px;
+    font-size: 2em; /* Larger heading */
 }
 
+/* Specific styling for the Animal Test section */
+.right-section {
+    text-align: center; /* Center content within the right section */
+}
+
+.right-section p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+input[type="file"] {
+    display: block; /* Make it block level */
+    width: calc(100% - 20px); /* Adjust width */
+    padding: 10px;
+    margin: 20px auto; /* Center and add margin */
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #e0f2ff; /* Light blue background */
+    color: #007bff;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: left; /* Align text within input */
+}
+
+input[type="file"]::file-selector-button {
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #0056b3;
+}
+
+#image-display {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    object-fit: contain; /* Ensure image fits well */
+    max-height: 300px; /* Limit height for display */
+}
+
+#loading-spinner {
+    margin-top: 20px;
+    font-size: 1.3em;
+    color: #007bff;
+    font-weight: bold;
+}
+
+#label-container {
+    margin-top: 15px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+#label-container h2 {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+#label-container div {
+    padding: 5px 0;
+    font-size: 1em;
+    color: #444;
+}
+
+#prediction-explanation {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white; /* Default text color */
+    background-color: #888; /* Default background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.result-dog {
+    background-color: #28a745; /* Green for Dog */
+}
+
+.result-fox {
+    background-color: #ffc107; /* Yellow/Orange for Fox */
+    color: #333; /* Darker text for contrast on yellow */
+}
+
+.result-unknown {
+    background-color: #dc3545; /* Red for unknown */
+}
+
+
+/* Existing form elements styling - adjust to remove max-width if it's causing issues */
 label {
     display: block;
     margin-bottom: 8px;
@@ -74,23 +177,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Teachable Machine specific styles */
-#webcam-container {
-    margin-top: 20px;
-    border: 1px solid #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#label-container {
-    margin-top: 10px;
-    font-size: 1.1em;
-    font-weight: bold;
-}
-#label-container div {
-    padding: 5px 0;
-}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -100,6 +186,6 @@ button:hover {
     }
     .left-section, .right-section {
         min-width: unset;
-        width: 100%;
+        width: 90%; /* Adjust width for small screens */
     }
 }

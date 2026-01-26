@@ -49,21 +49,25 @@
         <div class="right-section">
             <div class="container">
                 <h1>🐾 동물상 테스트</h1>
-                <div>Teachable Machine Image Model (파일 업로드)</div>
+                <p>파일을 업로드하여 강아지상인지 여우상인지 테스트해보세요!</p>
                 <input type="file" id="file-input" accept="image/*">
                 <img id="image-display" style="max-width: 100%; height: auto; margin-top: 10px; display: none;">
-                <div id="label-container"></div>
+                <div id="loading-spinner" style="display:none;">분석 중...</div>
+                <div id="label-container" style="margin-top: 10px;"></div>
+                <div id="prediction-explanation" style="margin-top: 20px; font-size: 1.2em; font-weight: bold;"></div>
                 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
                 <script type="text/javascript">
-                    // More API functions here:
-                    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
-                    // the link to your model provided by Teachable Machine export panel
                     const URL = "https://teachablemachine.withgoogle.com/models/2wGe4Wbzm/";
 
                     let model, labelContainer, maxPredictions;
-                    let imageDisplay; // Declare imageDisplay globally
+                    let imageDisplay, loadingSpinner, predictionExplanation;
+
+                    const predictionDescriptions = {
+                        "Dog": { text: "이 이미지는 강아지상에 가깝습니다!", styleClass: "result-dog" },
+                        "Fox": { text: "이 이미지는 여우상에 가깝습니다!", styleClass: "result-fox" },
+                        // Add more mappings if your model has more classes
+                    };
 
                     async function init() {
                         const modelURL = URL + "model.json";
@@ -73,21 +77,25 @@
                         maxPredictions = model.getTotalClasses();
 
                         labelContainer = document.getElementById("label-container");
-                        for (let i = 0; i < maxPredictions; i++) {
-                            labelContainer.appendChild(document.createElement("div"));
-                        }
+                        imageDisplay = document.getElementById("image-display");
+                        loadingSpinner = document.getElementById("loading-spinner");
+                        predictionExplanation = document.getElementById("prediction-explanation");
 
                         const fileInput = document.getElementById("file-input");
-                        imageDisplay = document.getElementById("image-display");
 
                         fileInput.addEventListener('change', async (event) => {
                             const file = event.target.files[0];
                             if (file) {
+                                loadingSpinner.style.display = 'block'; // Show spinner
+                                predictionExplanation.textContent = ''; // Clear previous explanation
+                                predictionExplanation.className = ''; // Clear previous styling
+                                labelContainer.innerHTML = ''; // Clear previous probabilities
+
                                 const reader = new FileReader();
                                 reader.onload = (e) => {
                                     imageDisplay.src = e.target.result;
-                                    imageDisplay.style.display = 'block'; // Show the image
-                                    predict(imageDisplay); // Predict using the displayed image
+                                    imageDisplay.style.display = 'block';
+                                    imageDisplay.onload = () => predict(imageDisplay); // Ensure image is loaded before predicting
                                 };
                                 reader.readAsDataURL(file);
                             }
@@ -97,18 +105,42 @@
                     async function predict(imageElement) {
                         if (!model) {
                             console.error("Model not loaded yet.");
+                            loadingSpinner.style.display = 'none';
                             return;
                         }
 
+                        // Ensure image is fully loaded
+                        if (!imageElement.complete) {
+                            await new Promise(resolve => imageElement.onload = resolve);
+                        }
+
                         const prediction = await model.predict(imageElement);
+                        loadingSpinner.style.display = 'none'; // Hide spinner
+
+                        let highestPrediction = { className: "Unknown", probability: 0 };
+
+                        // Display raw probabilities (optional, but good for debugging/details)
+                        labelContainer.innerHTML = '<h2>예측 확률:</h2>';
                         for (let i = 0; i < maxPredictions; i++) {
                             const classPrediction =
-                                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                            labelContainer.childNodes[i].innerHTML = classPrediction;
+                                `<div>${prediction[i].className}: ${(prediction[i].probability * 100).toFixed(2)}%</div>`;
+                            labelContainer.innerHTML += classPrediction;
+                            if (prediction[i].probability > highestPrediction.probability) {
+                                highestPrediction = prediction[i];
+                            }
+                        }
+
+                        // Display user-friendly explanation
+                        const description = predictionDescriptions[highestPrediction.className];
+                        if (description) {
+                            predictionExplanation.textContent = description.text;
+                            predictionExplanation.className = description.styleClass; // Apply styling
+                        } else {
+                            predictionExplanation.textContent = "알 수 없는 결과입니다.";
+                            predictionExplanation.className = "result-unknown";
                         }
                     }
 
-                    // Initialize the model when the page loads
                     init();
                 </script>
             </div>
