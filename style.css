@@ -1,111 +1,105 @@
-:root {
-    --background-color: #f0f0f0;
-    --text-color: #000;
-    --button-bg-color: #4CAF50;
-    --button-text-color: white;
-}
-
 body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
 }
 
-.dark-mode {
-    --background-color: #333;
-    --text-color: #fff;
-    --button-bg-color: #555;
-    --button-text-color: #fff;
+.main-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap onto the next line on smaller screens */
+    justify-content: center; /* Center items when they wrap */
+    gap: 20px; /* Space between sections */
+    max-width: 1200px; /* Max width of the content area */
+    margin: 20px auto; /* Center the wrapper */
+}
+
+.left-section, .right-section {
+    flex: 1; /* Allows sections to grow and shrink */
+    min-width: 350px; /* Minimum width before wrapping */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .container {
+    /* Existing container styles, adapted for sections */
+    margin-bottom: 20px; /* Space between container and disqus/other elements */
+}
+
+h1 {
     text-align: center;
+    color: #0056b3;
+    margin-bottom: 30px;
 }
 
-#generate, #theme-toggle {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-.number-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.number {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #4CAF50;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    margin: 0 5px;
-}
-
-.contact-section {
-    margin-top: 40px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-align: left;
-}
-
-.contact-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.contact-section form label {
+label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
-.contact-section form input[type="text"],
-.contact-section form input[type="email"],
-.contact-section form textarea {
+input[type="text"],
+input[type="email"],
+textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Ensures padding doesn't increase total width */
-    background-color: var(--background-color);
-    color: var(--text-color);
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
-.contact-section form textarea {
-    resize: vertical; /* Allow vertical resizing */
+textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
-.contact-section form button[type="submit"] {
+button {
+    display: block;
     width: 100%;
-    padding: 10px;
-    font-size: 1.1em;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 18px;
     transition: background-color 0.3s ease;
 }
+button:hover {
+    background-color: #0056b3;
+}
 
-.contact-section form button[type="submit"]:hover {
-    background-color: #45a049;
+/* Teachable Machine specific styles */
+#webcam-container {
+    margin-top: 20px;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#label-container {
+    margin-top: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#label-container div {
+    padding: 5px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .left-section, .right-section {
+        min-width: unset;
+        width: 100%;
+    }
 }
