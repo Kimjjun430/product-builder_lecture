@@ -1,9 +1,33 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .main-content-wrapper {
@@ -13,6 +37,7 @@ body {
     gap: 20px; /* Space between sections */
     max-width: 1200px; /* Max width of the content area */
     margin: 20px auto; /* Center the wrapper */
+    padding: 0 20px;
 }
 
 .left-section, .right-section {
@@ -24,10 +49,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.left-section .container, .right-section .container {
-    padding: 0; /* Remove padding from inner container as section already has it */
-    margin: 0; /* Remove margin from inner container */
-    box-shadow: none; /* Remove shadow from inner container */
+.container {
+    padding: 0;
 }
 
 h1 {
@@ -175,6 +198,30 @@ button {
 }
 button:hover {
     background-color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #00aaff;
+    text-decoration: none;
 }
 
 
