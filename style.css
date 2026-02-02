@@ -193,6 +193,11 @@ label[for="file-input"]:hover {
     background-color: #dc3545; /* Red for unknown */
 }
 
+.result-unknown-fallback {
+    background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%);
+    color: white;
+}
+
 
 /* Existing form elements styling - adjust to remove max-width if it's causing issues */
 label {
