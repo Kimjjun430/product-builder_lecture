@@ -1,16 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Jua', sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
     color: #333;
     line-height: 1.6;
 }
 
 header {
-    background-color: #0056b3;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     padding: 1rem 0;
     text-align: center;
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 nav ul {
@@ -25,9 +39,14 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #333;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0056b3;
 }
 
 .main-content-wrapper {
@@ -43,10 +62,12 @@ nav ul li a {
 .left-section, .right-section {
     flex: 1; /* Allows sections to grow and shrink */
     min-width: 350px; /* Minimum width before wrapping */
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .container {
@@ -55,9 +76,9 @@ nav ul li a {
 
 h1 {
     text-align: center;
-    color: #0056b3;
+    color: #333;
     margin-bottom: 30px;
-    font-size: 2em; /* Larger heading */
+    font-size: 2.5em; /* Larger heading */
 }
 
 /* Specific styling for the Animal Test section */
@@ -67,39 +88,35 @@ h1 {
 
 .right-section p {
     margin-bottom: 20px;
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #555;
 }
 
 input[type="file"] {
-    display: block; /* Make it block level */
-    width: calc(100% - 20px); /* Adjust width */
-    padding: 10px;
-    margin: 20px auto; /* Center and add margin */
-    border: 1px solid #007bff;
-    border-radius: 4px;
-    background-color: #e0f2ff; /* Light blue background */
-    color: #007bff;
-    cursor: pointer;
-    font-size: 1em;
-    text-align: left; /* Align text within input */
+    display: none;
 }
 
-input[type="file"]::file-selector-button {
-    font-weight: bold;
-    color: white;
-    background-color: #007bff;
+label[for="file-input"] {
+    display: block;
+    width: calc(100% - 40px);
+    padding: 15px 20px;
+    margin: 20px auto;
     border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    margin-right: 15px;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    color: white;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    font-size: 1.2em;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px 0 rgba(102, 166, 255, 0.75);
 }
 
-input[type="file"]::file-selector-button:hover {
-    background-color: #0056b3;
+label[for="file-input"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px 0 rgba(102, 166, 255, 1);
 }
+
 
 #image-display {
     border: 2px solid #ddd;
@@ -117,22 +134,22 @@ input[type="file"]::file-selector-button:hover {
 
 #label-container {
     margin-top: 15px;
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid #eee;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #label-container h2 {
     font-size: 1.1em;
-    color: #666;
+    color: #333;
     margin-bottom: 10px;
 }
 
 #label-container div {
     padding: 5px 0;
     font-size: 1em;
-    color: #444;
+    color: #333;
 }
 
 #prediction-explanation {
@@ -144,15 +161,32 @@ input[type="file"]::file-selector-button:hover {
     color: white; /* Default text color */
     background-color: #888; /* Default background */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s ease;
 }
 
 .result-dog {
-    background-color: #28a745; /* Green for Dog */
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    color: #333;
 }
 
 .result-fox {
-    background-color: #ffc107; /* Yellow/Orange for Fox */
-    color: #333; /* Darker text for contrast on yellow */
+    background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    color: white;
+}
+
+.result-cat {
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #333;
+}
+
+.result-rabbit {
+    background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.result-bear {
+    background: linear-gradient(120deg, #d7d2cc 0%, #304352 100%);
+    color: white;
 }
 
 .result-unknown {
@@ -188,20 +222,23 @@ button {
     display: block;
     width: 100%;
     padding: 12px 20px;
-    background-color: #007bff;
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 18px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px 0 rgba(102, 166, 255, 0.75);
 }
+
 button:hover {
-    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px 0 rgba(102, 166, 255, 1);
 }
 
 footer {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
     text-align: center;
     padding: 2rem 0;
@@ -220,8 +257,13 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #00aaff;
+    color: #89f7fe;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #66a6ff;
 }
 
 
