@@ -187,6 +187,21 @@ label[for="file-input"]:hover {
     color: white;
 }
 
+.result-alpaca {
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); /* Similar to cat, can be adjusted */
+    color: #333;
+}
+
+.result-armadillo {
+    background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%); /* Similar to unknown-fallback */
+    color: white;
+}
+
+.result-monkey {
+    background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%); /* New gradient */
+    color: #333;
+}
+
 .result-unknown {
     background-color: #dc3545; /* Red for unknown */
 }
