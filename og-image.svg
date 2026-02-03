@@ -1,0 +1,32 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a1c4fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c2e9fb;stop-opacity:1" />
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    </style>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grad1)"/>
+  <text
+     x="50%"
+     y="50%"
+     dominant-baseline="middle"
+     text-anchor="middle"
+     font-family="'Jua', sans-serif"
+     font-size="80"
+     fill="#333333">
+    AI 동물상 테스트
+  </text>
+  <text
+     x="50%"
+     y="65%"
+     dominant-baseline="middle"
+     text-anchor="middle"
+     font-family="'Jua', sans-serif"
+     font-size="40"
+     fill="#555555">
+    나는 어떤 동물과 닮았을까?
+  </text>
+</svg>

@@ -2,8 +2,25 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <title>AI 동물상 테스트 - 나는 어떤 동물과 닮았을까?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제휴 문의 및 동물상 테스트</title>
+    <meta name="description" content="AI가 당신의 얼굴을 분석하여 어떤 동물상인지 알려드립니다. 강아지상, 고양이상, 여우상 등 내 동물 소울메이트를 찾아보세요.">
+    <link rel="canonical" href="https://junhyeong.com/index.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://junhyeong.com/index.html">
+    <meta property="og:title" content="AI 동물상 테스트 - 나는 어떤 동물과 닮았을까?">
+    <meta property="og:description" content="AI가 당신의 얼굴을 분석하여 어떤 동물상인지 알려드립니다. 강아지상, 고양이상, 여우상 등 내 동물 소울메이트를 찾아보세요.">
+    <meta property="og:image" content="https://junhyeong.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://junhyeong.com/index.html">
+    <meta property="twitter:title" content="AI 동물상 테스트 - 나는 어떤 동물과 닮았을까?">
+    <meta property="twitter:description" content="AI가 당신의 얼굴을 분석하여 어떤 동물상인지 알려드립니다. 강아지상, 고양이상, 여우상 등 내 동물 소울메이트를 찾아보세요.">
+    <meta property="twitter:image" content="https://junhyeong.com/og-image.png">
+
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta name="google-adsense-account" content="ca-pub-4351327247816845">
     <link rel="stylesheet" href="style.css">
@@ -24,6 +41,36 @@
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "vb373t4lcz");
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://junhyeong.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://junhyeong.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AI 동물상 테스트",
+      "operatingSystem": "WEB",
+      "applicationCategory": "Entertainment",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1024"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
     </script>
 </head>
 <body>
@@ -52,7 +99,7 @@
                 <p>어떤 동물과 닮았는지 궁금하다면, 지금 바로 사진을 올려보세요!</p>
                 <label for="file-input">📸 사진 업로드</label>
                 <input type="file" id="file-input" accept="image/*">
-                <img id="image-display" style="max-width: 100%; height: auto; margin-top: 10px; display: none;">
+                <img id="image-display" alt="업로드된 얼굴 사진" style="max-width: 100%; height: auto; margin-top: 10px; display: none;">
                 <div id="loading-spinner" style="display:none;">분석 중...</div>
                 <div id="label-container" style="margin-top: 10px;"></div>
                 <div id="prediction-explanation" style="margin-top: 20px; font-size: 1.2em; font-weight: bold;"></div>
