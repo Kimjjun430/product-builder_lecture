@@ -1,12 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <title>My Website</title>
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Jua&display=swap">
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제휴 문의 및 동물상 테스트</title>
+    <meta name="google-adsense-account" content="ca-pub-4351327247816845">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Jua&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4351327247816845"
+     crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>Welcome to my website</h1>
-  <script src="main.js"></script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">홈</a></li>
+                <li><a href="about.html">소개</a></li>
+                <li><a href="contact.html">문의하기</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-content-wrapper">
+        <div class="left-section">
+            <div class="container">
+                <h1>동물상 테스트에 오신 것을 환영합니다!</h1>
+                <p>당신의 얼굴은 어떤 동물과 가장 닮았을까요? 최신 인공지능 기술을 통해 당신의 동물상을 찾아보세요. 간단한 사진 업로드만으로 빠르고 재미있게 결과를 확인할 수 있습니다.</p>
+                <p>저희 서비스는 사용자의 사진을 심층 분석하여 강아지상, 여우상 등 다양한 동물상과의 유사도를 측정합니다. 친구나 가족과 함께 즐기며 서로의 동물상을 비교해보세요!</p>
+                <p><strong>참고:</strong> 본 테스트는 오락용으로 제작되었으며, 과학적인 정확성을 보장하지 않습니다. 결과는 재미로만 즐겨주시길 바랍니다.</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="container">
+                <h1>🐾 동물상 테스트</h1>
+                <p>파일을 업로드하여 강아지상인지 여우상인지 테스트해보세요!</p>
+                <input type="file" id="file-input" accept="image/*">
+                <img id="image-display" style="max-width: 100%; height: auto; margin-top: 10px; display: none;">
+                <div id="loading-spinner" style="display:none;">분석 중...</div>
+                <div id="label-container" style="margin-top: 10px;"></div>
+                <div id="prediction-explanation" style="margin-top: 20px; font-size: 1.2em; font-weight: bold;"></div>
+                <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+                <script type="text/javascript">
+                    const URL = "https://teachablemachine.withgoogle.com/models/fZ8XaMBEj/";
+
+                    let model, labelContainer, maxPredictions;
+                    let imageDisplay, loadingSpinner, predictionExplanation;
+
+                    const predictionDescriptions = {
+                        "Dog": { text: "이 이미지는 강아지상에 가깝습니다!", styleClass: "result-dog" },
+                        "Fox": { text: "이 이미지는 여우상에 가깝습니다!", styleClass: "result-fox" },
+                        // Add more mappings if your model has more classes
+                    };
+
+                    async function init() {
+                        const modelURL = URL + "model.json";
+                        const metadataURL = URL + "metadata.json";
+
+                        model = await tmImage.load(modelURL, metadataURL);
+                        maxPredictions = model.getTotalClasses();
+
+                        labelContainer = document.getElementById("label-container");
+                        imageDisplay = document.getElementById("image-display");
+                        loadingSpinner = document.getElementById("loading-spinner");
+                        predictionExplanation = document.getElementById("prediction-explanation");
+
+                        const fileInput = document.getElementById("file-input");
+
+                        fileInput.addEventListener('change', async (event) => {
+                            const file = event.target.files[0];
+                            if (file) {
+                                loadingSpinner.style.display = 'block'; // Show spinner
+                                predictionExplanation.textContent = ''; // Clear previous explanation
+                                predictionExplanation.className = ''; // Clear previous styling
+                                labelContainer.innerHTML = ''; // Clear previous probabilities
+
+                                const reader = new FileReader();
+                                reader.onload = (e) => {
+                                    imageDisplay.src = e.target.result;
+                                    imageDisplay.style.display = 'block';
+                                    imageDisplay.onload = () => predict(imageDisplay); // Ensure image is loaded before predicting
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    }
+
+                    async function predict(imageElement) {
+                        if (!model) {
+                            console.error("Model not loaded yet.");
+                            loadingSpinner.style.display = 'none';
+                            return;
+                        }
+
+                        // Ensure image is fully loaded
+                        if (!imageElement.complete) {
+                            await new Promise(resolve => imageElement.onload = resolve);
+                        }
+
+                        const prediction = await model.predict(imageElement);
+                        loadingSpinner.style.display = 'none'; // Hide spinner
+
+                        let highestPrediction = { className: "Unknown", probability: 0 };
+
+                        // Display raw probabilities (optional, but good for debugging/details)
+                        labelContainer.innerHTML = '<h2>예측 확률:</h2>';
+                        for (let i = 0; i < maxPredictions; i++) {
+                            const classPrediction =
+                                `<div>${prediction[i].className}: ${(prediction[i].probability * 100).toFixed(2)}%</div>`;
+                            labelContainer.innerHTML += classPrediction;
+                            if (prediction[i].probability > highestPrediction.probability) {
+                                highestPrediction = prediction[i];
+                            }
+                        }
+
+                        // Display user-friendly explanation
+                        const description = predictionDescriptions[highestPrediction.className];
+                        if (description) {
+                            predictionExplanation.textContent = description.text;
+                            predictionExplanation.className = description.styleClass; // Apply styling
+                        } else {
+                            predictionExplanation.textContent = "알 수 없는 결과입니다.";
+                            predictionExplanation.className = "result-unknown";
+                        }
+                    }
+
+                    init();
+                </script>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 동물상 테스트. All Rights Reserved.</p>
+            <ul>
+                <li><a href="privacy.html">개인정보처리방침</a></li>
+                <li><a href="terms.html">이용약관</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
