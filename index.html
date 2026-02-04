@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제휴 문의 및 동물상 테스트</title>
+    <title>동물상 테스트</title>
+    <meta name="description" content="인공지능 동물상 테스트! 나는 어떤 동물과 닮았을까? 지금 바로 확인해보세요!">
+    <meta property="og:title" content="동물상 테스트">
+    <meta property="og:description" content="인공지능 동물상 테스트! 나는 어떤 동물과 닮았을까? 지금 바로 확인해보세요!">
+    <meta property="og:image" content="og-image.svg">
+    <meta property="og:url" content="https://junhyeong.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="동물상 테스트">
+    <meta name="twitter:description" content="인공지능 동물상 테스트! 나는 어떤 동물과 닮았을까? 지금 바로 확인해보세요!">
+    <meta name="twitter:image" content="og-image.svg">
     <meta name="google-adsense-account" content="ca-pub-4351327247816845">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Jua&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4351327247816845"
      crossorigin="anonymous"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
     <header>
@@ -41,6 +52,13 @@
                 <div id="loading-spinner" style="display:none;">분석 중...</div>
                 <div id="label-container" style="margin-top: 10px;"></div>
                 <div id="prediction-explanation" style="margin-top: 20px; font-size: 1.2em; font-weight: bold;"></div>
+                <div id="social-share" style="display:none; margin-top: 20px;">
+                    <h3>결과 공유하기:</h3>
+                    <button onclick="shareOnFacebook()" class="facebook"><i class="fab fa-facebook-f"></i> 페이스북</button>
+                    <button onclick="shareOnTwitter()" class="twitter"><i class="fab fa-twitter"></i> 트위터</button>
+                    <button onclick="shareOnKakao()" class="kakao"><i class="fas fa-comment"></i> 카카오톡</button>
+                    <button onclick="copyLink()" class="copy-link"><i class="fas fa-link"></i> 링크 복사</button>
+                </div>
                 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
                 <script type="text/javascript">
@@ -59,6 +77,7 @@
                     };
 
                     async function init() {
+                        Kakao.init('de260561061935ub0900b73059bc438f');
                         const modelURL = URL + "model.json";
                         const metadataURL = URL + "metadata.json";
 
@@ -79,6 +98,7 @@
                                 predictionExplanation.textContent = ''; // Clear previous explanation
                                 predictionExplanation.className = ''; // Clear previous styling
                                 labelContainer.innerHTML = ''; // Clear previous probabilities
+                                document.getElementById('social-share').style.display = 'none';
 
                                 const reader = new FileReader();
                                 reader.onload = (e) => {
@@ -128,6 +148,51 @@
                             predictionExplanation.textContent = "알 수 없는 결과입니다.";
                             predictionExplanation.className = "result-unknown";
                         }
+                        document.getElementById('social-share').style.display = 'block';
+                    }
+
+                    function shareOnFacebook() {
+                        const url = encodeURIComponent(window.location.href);
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+                    }
+
+                    function shareOnTwitter() {
+                        const url = encodeURIComponent(window.location.href);
+                        const text = encodeURIComponent("방금 동물상 테스트를 했는데, 결과가 궁금하다면? #동물상테스트");
+                        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+                    }
+
+                    function shareOnKakao() {
+                        Kakao.Link.sendDefault({
+                            objectType: 'feed',
+                            content: {
+                                title: '동물상 테스트',
+                                description: '나는 어떤 동물과 닮았을까? 지금 바로 확인해보세요!',
+                                imageUrl:
+                                    'https://junhyeong.dev/og-image.svg',
+                                link: {
+                                    mobileWebUrl: 'https://junhyeong.dev',
+                                    webUrl: 'https://junhyeong.dev',
+                                },
+                            },
+                            buttons: [
+                                {
+                                    title: '테스트 하러가기',
+                                    link: {
+                                        mobileWebUrl: 'https://junhyeong.dev',
+                                        webUrl: 'https://junhyeong.dev',
+                                    },
+                                },
+                            ],
+                        });
+                    }
+
+                    function copyLink() {
+                        navigator.clipboard.writeText(window.location.href).then(() => {
+                            alert("링크가 복사되었습니다!");
+                        }, () => {
+                            alert("링크 복사에 실패했습니다.");
+                        });
                     }
 
                     init();
@@ -144,5 +209,12 @@
             </ul>
         </div>
     </footer>
+    <script>
+        window.Userback = window.Userback || {};
+        Userback.access_token = "A-ybPFBgufXzfHWbYsi2nIDCIZQ";
+        (function(d) {
+            var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
+        })(document);
+    </script>
 </body>
 </html>
