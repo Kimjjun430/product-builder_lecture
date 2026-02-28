@@ -3,174 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>동물상 테스트</title>
-    <meta name="description" content="인공지능 동물상 테스트! 나는 어떤 동물과 닮았을까? 지금 바로 확인해보세요!">
-    <meta property="og:title" content="동물상 테스트">
-    <meta property="og:description" content="인공지능 동물상 테스트! 나는 어떤 동물과 닮았을까? 지금 바로 확인해보세요!">
-    <meta property="og:image" content="og-image.svg">
-    <meta property="og:url" content="https://junhyeong.dev">
+    <title>AI 동물상 테스트 | 얼굴 사진으로 닮은 동물 유형 보기</title>
+    <meta name="description" content="AI 동물상 테스트에서 얼굴 사진을 분석해 닮은 동물 유형을 확인하세요. 결과 해석 가이드, 모델 한계, 개인정보 처리 원칙까지 한 페이지에서 안내합니다.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fauna.fit/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fauna.fit/">
+    <meta property="og:title" content="AI 동물상 테스트">
+    <meta property="og:description" content="AI 동물상 테스트에서 얼굴 사진을 분석해 닮은 동물 유형을 확인하세요.">
+    <meta property="og:image" content="https://fauna.fit/og-image.svg">
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="동물상 테스트">
-    <meta name="twitter:description" content="인공지능 동물상 테스트! 나는 어떤 동물과 닮았을까? 지금 바로 확인해보세요!">
-    <meta name="twitter:image" content="og-image.svg">
+    <meta name="twitter:title" content="AI 동물상 테스트">
+    <meta name="twitter:description" content="얼굴 사진을 업로드하면 AI가 동물 유형을 분류해 결과를 보여줍니다.">
+    <meta name="twitter:image" content="https://fauna.fit/og-image.svg">
+
     <meta name="google-adsense-account" content="ca-pub-4351327247816845">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Jua&display=swap">
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4351327247816845"
-     crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4351327247816845" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AI 동물상 테스트",
+      "url": "https://fauna.fit/",
+      "inLanguage": "ko"
+    }
+    </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">홈</a></li>
-                <li><a href="about.html">소개</a></li>
-                <li><a href="contact.html">문의하기</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="nav-wrap">
+            <a class="brand" href="index.html">AI 동물상 테스트</a>
+            <nav aria-label="주요 메뉴">
+                <ul class="top-nav">
+                    <li><a class="active" href="index.html">홈</a></li>
+                    <li><a href="guide.html">이용 가이드</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="blog.html">동물상 블로그</a></li>
+                    <li><a href="about.html">서비스 소개</a></li>
+                    <li><a href="contact.html">문의</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <div class="main-content-wrapper">
-        <div class="left-section">
-            <div class="container">
-                <h1>동물상 테스트에 오신 것을 환영합니다!</h1>
-                <p>당신의 얼굴은 어떤 동물과 가장 닮았을까요? 최신 인공지능 기술을 통해 당신의 동물상을 찾아보세요. 간단한 사진 업로드만으로 빠르고 재미있게 결과를 확인할 수 있습니다.</p>
-                <p>저희 서비스는 사용자의 사진을 심층 분석하여 강아지상, 여우상 등 다양한 동물상과의 유사도를 측정합니다. 친구나 가족과 함께 즐기며 서로의 동물상을 비교해보세요!</p>
-                <p><strong>참고:</strong> 본 테스트는 오락용으로 제작되었으며, 과학적인 정확성을 보장하지 않습니다. 결과는 재미로만 즐겨주시길 바랍니다.</p>
-            </div>
-        </div>
 
-        <div class="right-section">
-            <div class="container">
-                <h1>🐾 동물상 테스트</h1>
-                <p>파일을 업로드하여 강아지상인지 여우상인지 테스트해보세요!</p>
-                <label for="file-input">이미지 업로드</label>
-                <input type="file" id="file-input" accept="image/*">
-                <img id="image-display" style="max-width: 100%; height: auto; margin-top: 10px; display: none;">
-                <div id="loading-spinner" style="display:none;">분석 중...</div>
-                <div id="label-container" style="margin-top: 10px;"></div>
-                <div id="prediction-explanation" style="margin-top: 20px; font-size: 1.2em; font-weight: bold;"></div>
-                <!-- AddToAny BEGIN -->
-                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-                <a class="a2a_button_facebook"></a>
-                <a class="a2a_button_mastodon"></a>
-                <a class="a2a_button_email"></a>
-                <a class="a2a_button_telegram"></a>
-                <a class="a2a_button_reddit"></a>
-                <a class="a2a_button_line"></a>
+    <main class="container">
+        <section class="hero">
+            <div>
+                <h1>얼굴 사진으로 닮은 동물 유형을 확인해보세요</h1>
+                <p>이 페이지는 단순 업로드 화면이 아니라, 결과 해석 기준과 모델 한계를 함께 제공하는 정보형 테스트 서비스입니다. 사용자는 결과를 오락용으로 확인하되, 어떻게 분석되는지와 어떤 경우 오차가 커지는지까지 확인할 수 있습니다.</p>
+                <p>분류 모델은 Teachable Machine 기반의 다중 클래스 분류를 사용하며, 테스트 전처리와 결과 표시는 브라우저 환경에서 동작합니다. 업로드 이미지는 이용자의 로컬 브라우저에서 표시되며, 서버에 저장하지 않습니다.</p>
+                <div class="notice-box">
+                    <strong>중요 안내:</strong> 본 테스트는 재미를 위한 기능입니다. 얼굴 인식 신원 확인, 의료 판단, 채용/심사 같은 민감한 의사결정 용도로 사용할 수 없습니다.
                 </div>
-                <!-- AddToAny END -->
-                <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-                <script type="text/javascript">
-                    const URL = "https://teachablemachine.withgoogle.com/models/fZ8XaMBEj/";
-
-                    let model, labelContainer, maxPredictions;
-                    let imageDisplay, loadingSpinner, predictionExplanation;
-
-                    const predictionDescriptions = {
-                        "강아지": { text: "당신은 사랑스러운 강아지상! 활발하고 친근한 매력이 넘쳐요!", styleClass: "result-dog" },
-                        "여우": { text: "앙큼하고 매력적인 여우상! 똑똑하고 세련된 분위기가 느껴져요!", styleClass: "result-fox" },
-                        "알파카": { text: "온화하고 신비로운 알파카상! 순수하고 포근한 인상을 주네요!", styleClass: "result-alpaca" },
-                        "아르마딜로": { text: "독특하고 듬직한 아르마딜로상! 자신만의 매력으로 무장했어요!", styleClass: "result-armadillo" },
-                        "긴 꼬리 원숭이": { text: "장난기 많고 호기심 가득한 긴 꼬리 원숭이상! 유쾌한 에너지가 돋보여요!", styleClass: "result-monkey" },
-                        // Add more mappings if your model has more classes
-                    };
-
-                    async function init() {
-                        const modelURL = URL + "model.json";
-                        const metadataURL = URL + "metadata.json";
-
-                        model = await tmImage.load(modelURL, metadataURL);
-                        maxPredictions = model.getTotalClasses();
-
-                        labelContainer = document.getElementById("label-container");
-                        imageDisplay = document.getElementById("image-display");
-                        loadingSpinner = document.getElementById("loading-spinner");
-                        predictionExplanation = document.getElementById("prediction-explanation");
-
-                        const fileInput = document.getElementById("file-input");
-
-                        fileInput.addEventListener('change', async (event) => {
-                            const file = event.target.files[0];
-                            if (file) {
-                                loadingSpinner.style.display = 'block'; // Show spinner
-                                predictionExplanation.textContent = ''; // Clear previous explanation
-                                predictionExplanation.className = ''; // Clear previous styling
-                                labelContainer.innerHTML = ''; // Clear previous probabilities
-
-                                const reader = new FileReader();
-                                reader.onload = (e) => {
-                                    imageDisplay.src = e.target.result;
-                                    imageDisplay.style.display = 'block';
-                                    imageDisplay.onload = () => predict(imageDisplay); // Ensure image is loaded before predicting
-                                };
-                                reader.readAsDataURL(file);
-                            }
-                        });
-                    }
-
-                    async function predict(imageElement) {
-                        if (!model) {
-                            console.error("Model not loaded yet.");
-                            loadingSpinner.style.display = 'none';
-                            return;
-                        }
-
-                        // Ensure image is fully loaded
-                        if (!imageElement.complete) {
-                            await new Promise(resolve => imageElement.onload = resolve);
-                        }
-
-                        const prediction = await model.predict(imageElement);
-                        loadingSpinner.style.display = 'none'; // Hide spinner
-
-                        let highestPrediction = { className: "Unknown", probability: 0 };
-
-                        // Display raw probabilities (optional, but good for debugging/details)
-                        labelContainer.innerHTML = '<h2>예측 확률:</h2>';
-                        for (let i = 0; i < maxPredictions; i++) {
-                            const classPrediction =
-                                `<div>${prediction[i].className}: ${(prediction[i].probability * 100).toFixed(2)}%</div>`;
-                            labelContainer.innerHTML += classPrediction;
-                            if (prediction[i].probability > highestPrediction.probability) {
-                                highestPrediction = prediction[i];
-                            }
-                        }
-
-                        // Display user-friendly explanation
-                        const description = predictionDescriptions[highestPrediction.className];
-                        if (description) {
-                            predictionExplanation.textContent = description.text;
-                            predictionExplanation.className = description.styleClass; // Apply styling
-                        } else {
-                            predictionExplanation.textContent = "알 수 없는 결과입니다.";
-                            predictionExplanation.className = "result-unknown";
-                        }
-                    }
-
-                    init();
-                </script>
             </div>
-        </div>
-    </div>
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 동물상 테스트. All Rights Reserved.</p>
-            <ul>
+
+            <section class="upload-panel" aria-labelledby="tool-title">
+                <h2 id="tool-title">동물상 테스트 실행</h2>
+                <p class="upload-tip">정면 얼굴, 밝은 조명, 모자/마스크 미착용 이미지를 권장합니다. JPG·PNG·WEBP 형식(최대 8MB)을 지원합니다.</p>
+
+                <label for="file-input" class="file-button">이미지 선택하기</label>
+                <input type="file" id="file-input" accept="image/png, image/jpeg, image/webp">
+
+                <img id="image-display" alt="업로드한 이미지 미리보기">
+                <div id="loading-spinner">모델이 이미지를 분석하고 있습니다...</div>
+                <div id="prediction-explanation" aria-live="polite">이미지를 업로드하면 결과 요약이 여기에 표시됩니다.</div>
+                <div id="label-container" aria-live="polite"></div>
+            </section>
+        </section>
+
+        <section class="content-section">
+            <h2>결과를 읽는 방법</h2>
+            <div class="card-grid">
+                <article class="info-card">
+                    <h3>1. 상위 확률 우선</h3>
+                    <p>가장 높은 확률 클래스가 기본 결과입니다. 다만 1위와 2위 확률 차이가 작으면 혼합 인상으로 해석하는 것이 적절합니다.</p>
+                </article>
+                <article class="info-card">
+                    <h3>2. 촬영 조건 확인</h3>
+                    <p>빛이 약하거나 얼굴 각도가 크면 분류 정확도가 낮아질 수 있습니다. 같은 인물도 사진에 따라 결과가 달라질 수 있습니다.</p>
+                </article>
+                <article class="info-card">
+                    <h3>3. 오락 목적 사용</h3>
+                    <p>결과는 성격 진단이나 신뢰 가능한 과학 지표가 아닙니다. 재미와 대화 소재로만 활용하는 것을 권장합니다.</p>
+                </article>
+            </div>
+            <p class="inline-note">상세한 촬영 팁과 해석 예시는 <a href="guide.html">이용 가이드</a>에서 확인할 수 있습니다.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>모델 구성과 개인정보 처리 원칙</h2>
+            <ul class="check-list">
+                <li>모델 출처: 공개 Teachable Machine 모델(<a href="https://teachablemachine.withgoogle.com/" rel="noopener" target="_blank">teachablemachine.withgoogle.com</a>)을 웹 클라이언트에서 로드합니다.</li>
+                <li>분석 방식: 브라우저 내 추론 방식이며, 업로드 파일은 서버 저장 없이 사용자가 페이지를 닫으면 세션에서 사라집니다.</li>
+                <li>민감 데이터 제한: 미성년자 사진, 타인 사진, 저작권·초상권 침해 가능 이미지는 업로드하지 않아야 합니다.</li>
+                <li>광고 정책 준수: 본 사이트는 콘텐츠가 있는 화면에서만 광고 스크립트를 운영하며, 미완성/빈 화면 운영을 지양합니다.</li>
+            </ul>
+            <p class="inline-note">정책 문서는 <a href="privacy.html">개인정보처리방침</a>과 <a href="terms.html">이용약관</a>에서 확인할 수 있습니다.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>사이트 운영 품질 기준</h2>
+            <p>재심사 기준을 충족하기 위해 이 사이트는 다음 원칙으로 운영됩니다.</p>
+            <ul class="check-list">
+                <li>모든 주요 URL에 실제 정보성 본문을 제공하며, 준비 중 페이지나 단순 이동용 페이지를 노출하지 않습니다.</li>
+                <li>홈, 가이드, FAQ, 소개, 문의, 정책 문서를 상호 링크해 사용자가 맥락 없이 고립된 페이지를 보지 않도록 구성합니다.</li>
+                <li>깨진 링크, 잘못된 메타 정보, 중복 URL rewrite를 최소화해 검색엔진과 정책 크롤러가 페이지 목적을 명확히 파악할 수 있게 유지합니다.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <p class="muted">© 2026 AI 동물상 테스트. 마지막 업데이트: 2026-02-28</p>
+            <ul class="footer-links">
+                <li><a href="guide.html">이용 가이드</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="blog.html">동물상 블로그</a></li>
+                <li><a href="about.html">서비스 소개</a></li>
+                <li><a href="contact.html">문의</a></li>
                 <li><a href="privacy.html">개인정보처리방침</a></li>
                 <li><a href="terms.html">이용약관</a></li>
             </ul>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script>
-        window.Userback = window.Userback || {};
-        Userback.access_token = "A-ybPFBgufXzfHWbYsi2nIDCIZQ";
-        (function(d) {
-            var s = d.createElement('script');s.async = true;s.src = 'https://static.userback.io/widget/v1.js';(d.head || d.body).appendChild(s);
-        })(document);
+        const MODEL_BASE_URL = "https://teachablemachine.withgoogle.com/models/fZ8XaMBEj/";
+        const MAX_FILE_SIZE = 8 * 1024 * 1024;
+
+        const predictionDescriptions = {
+            "강아지": {
+                text: "강아지형 인상이 강하게 나타났습니다. 친근하고 밝은 느낌으로 해석됩니다.",
+                styleClass: "result-dog"
+            },
+            "여우": {
+                text: "여우형 인상이 높게 나왔습니다. 선명한 눈매와 날렵한 분위기로 해석됩니다.",
+                styleClass: "result-fox"
+            },
+            "알파카": {
+                text: "알파카형 인상 결과입니다. 부드럽고 순한 인상으로 분류되었습니다.",
+                styleClass: "result-alpaca"
+            },
+            "아르마딜로": {
+                text: "아르마딜로형 인상으로 분류되었습니다. 얼굴 윤곽 대비가 강한 사진에서 자주 나타납니다.",
+                styleClass: "result-armadillo"
+            },
+            "긴 꼬리 원숭이": {
+                text: "긴 꼬리 원숭이형 결과입니다. 표정이 강조된 이미지에서 높은 확률이 나올 수 있습니다.",
+                styleClass: "result-monkey"
+            }
+        };
+
+        let model = null;
+        let maxPredictions = 0;
+
+        const fileInput = document.getElementById("file-input");
+        const imageDisplay = document.getElementById("image-display");
+        const loadingSpinner = document.getElementById("loading-spinner");
+        const labelContainer = document.getElementById("label-container");
+        const predictionExplanation = document.getElementById("prediction-explanation");
+
+        function showMessage(message, className = "result-unknown") {
+            predictionExplanation.textContent = message;
+            predictionExplanation.className = className;
+        }
+
+        function renderProbabilities(predictions) {
+            labelContainer.innerHTML = "";
+
+            const title = document.createElement("h3");
+            title.textContent = "예측 확률";
+            labelContainer.appendChild(title);
+
+            predictions.forEach((item) => {
+                const row = document.createElement("div");
+                row.className = "probability-row";
+
+                const label = document.createElement("span");
+                label.textContent = item.className;
+
+                const score = document.createElement("strong");
+                score.textContent = `${(item.probability * 100).toFixed(2)}%`;
+
+                row.appendChild(label);
+                row.appendChild(score);
+                labelContainer.appendChild(row);
+            });
+        }
+
+        async function initModel() {
+            const modelURL = `${MODEL_BASE_URL}model.json`;
+            const metadataURL = `${MODEL_BASE_URL}metadata.json`;
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+        }
+
+        async function analyzeImage(imageElement) {
+            if (!model) {
+                await initModel();
+            }
+
+            const predictions = await model.predict(imageElement);
+            predictions.sort((a, b) => b.probability - a.probability);
+
+            const limited = predictions.slice(0, maxPredictions);
+            renderProbabilities(limited);
+
+            const topResult = limited[0];
+            const description = predictionDescriptions[topResult.className];
+            if (description) {
+                showMessage(description.text, description.styleClass);
+            } else {
+                showMessage("이 이미지에서는 확실한 유형을 찾지 못했습니다. 다른 사진으로 다시 시도해보세요.");
+            }
+        }
+
+        fileInput.addEventListener("change", (event) => {
+            const file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            if (!file.type.startsWith("image/")) {
+                showMessage("이미지 파일(JPG, PNG, WEBP)만 업로드할 수 있습니다.");
+                return;
+            }
+
+            if (file.size > MAX_FILE_SIZE) {
+                showMessage("파일 용량이 8MB를 초과했습니다. 더 작은 이미지를 선택해주세요.");
+                return;
+            }
+
+            const reader = new FileReader();
+            loadingSpinner.style.display = "block";
+            showMessage("이미지를 불러오는 중입니다...", "result-unknown");
+            labelContainer.innerHTML = "";
+
+            reader.onload = (loadEvent) => {
+                imageDisplay.src = loadEvent.target.result;
+                imageDisplay.style.display = "block";
+                imageDisplay.onload = async () => {
+                    try {
+                        await analyzeImage(imageDisplay);
+                    } catch (error) {
+                        console.error(error);
+                        showMessage("모델 분석 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+                    } finally {
+                        loadingSpinner.style.display = "none";
+                    }
+                };
+            };
+
+            reader.readAsDataURL(file);
+        });
     </script>
-    <script defer src="https://static.addtoany.com/menu/page.js"></script>
 </body>
 </html>
